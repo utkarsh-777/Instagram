@@ -12,7 +12,7 @@ import CommentScreen from "./components/main/Comment";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
 
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
@@ -55,7 +55,7 @@ const App = ({ navigation }) => {
             </NavigationContainer>
           ) : (
             <Provider store={store}>
-              <View style={styles.container}>
+              <SafeAreaView style={styles.AndroidSafeArea}>
                 <NavigationContainer theme={MyTheme}>
                   <Header />
                   <Stack.Navigator initialRouteName="Instagram">
@@ -81,7 +81,7 @@ const App = ({ navigation }) => {
                     />
                   </Stack.Navigator>
                 </NavigationContainer>
-              </View>
+              </SafeAreaView>
             </Provider>
           )}
         </>
@@ -91,6 +91,11 @@ const App = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  AndroidSafeArea: {
+    flex: 1,
+    backgroundColor: "black",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+  },
   container: {
     flex: 1,
     backgroundColor: "black",
