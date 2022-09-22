@@ -8,6 +8,7 @@ import MainScreen from "./components/Main";
 import AddScreen from "./components/main/Add";
 import SaveScreen from "./components/main/Save";
 import CommentScreen from "./components/main/Comment";
+import Header from "./components/home/Header";
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
@@ -16,7 +17,7 @@ import { View, Text, StyleSheet, SafeAreaView, Platform, StatusBar } from "react
 
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
-import Header from "./components/home/Header";
+
 
 const Stack = createStackNavigator();
 const App = ({ navigation }) => {
