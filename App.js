@@ -96,11 +96,6 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
-  container: {
-    flex: 1,
-    backgroundColor: "black",
-    marginTop: 35,
-  },
 });
 
 const MyTheme = {
